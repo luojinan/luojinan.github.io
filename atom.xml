@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-07-12T02:00:40.952Z</updated>
+    <updated>2019-07-12T02:04:22.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -25,6 +25,7 @@
 2、印象笔记无法自定义封面和摘要</p>
 <hr>
 <p>Gridea：	
+1、图片上传到github加载不出来...本地预览可以，线上版本不行
 2、测试图片有没有可能会挂掉，永久有效就用来做印象笔记和CSDN的图床
 3、除了文章的代码块，Gridea能不能上传代码文件，还是要同样要链接到github代码库
 4、以后的写笔记顺序： Gridea--&gt;印象笔记预览--&gt;修改--&gt;Gridea发布--&gt;CSDN发布</p>
