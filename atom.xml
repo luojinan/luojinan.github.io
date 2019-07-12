@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-07-10T16:25:02.000Z</updated>
+    <updated>2019-07-12T02:00:40.952Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -12,11 +12,23 @@
     <rights>All rights reserved 2019, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[测试文章]]></title>
-        <id>https://luojinan.github.io//post/ce-shi-wen-zhang</id>
-        <link href="https://luojinan.github.io//post/ce-shi-wen-zhang">
+        <id>https://luojinan.github.io//post/测试文章</id>
+        <link href="https://luojinan.github.io//post/测试文章">
         </link>
         <updated>2019-07-10T16:20:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>？？？</p>
+]]></summary>
         <content type="html"><![CDATA[<p>？？？</p>
+<!-- more -->
+<p>现在写博客的地方有：CSDN、印象笔记、Gridea。</p>
+<p>1、CSDN和印象笔记的图片不互通
+2、印象笔记无法自定义封面和摘要</p>
+<hr>
+<p>Gridea：	
+2、测试图片有没有可能会挂掉，永久有效就用来做印象笔记和CSDN的图床
+3、除了文章的代码块，Gridea能不能上传代码文件，还是要同样要链接到github代码库
+4、以后的写笔记顺序： Gridea--&gt;印象笔记预览--&gt;修改--&gt;Gridea发布--&gt;CSDN发布</p>
+<p><img src="https://luojinan.github.io//post-images/1562895205737.jpg" alt="测试图片"></p>
 ]]></content>
     </entry>
     <entry>
