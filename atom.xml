@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-08-10T01:56:51.066Z</updated>
+    <updated>2019-08-10T01:57:57.368Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -17,6 +17,7 @@
         </link>
         <updated>2019-08-10T01:54:18.000Z</updated>
         <content type="html"><![CDATA[<h3 id="一行代码去重数组">一行代码去重数组</h3>
+<p><img src="https://luojinan.github.io//post-images/1565402093069.png" alt=""></p>
 <blockquote>
 <p>注意<code>new Set()</code>返回的是一个set对象，而不是直接返回去重后的数组
 因此，把该对象展开并放入空数组中，才能形成一个数组</p>
@@ -24,7 +25,6 @@
 <pre><code class="language-js">const list = [1, 1, 2, 3, 6, 45, 8, 5, 4, 6, 5]
 const uniqueList = [...new Set(list)] // [1, 2, 3, 6, 45, 8, 5, 4]
 </code></pre>
-<p><img src="https://luojinan.github.io//post-images/1565402093069.png" alt=""></p>
 ]]></content>
     </entry>
     <entry>
