@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>节流工具函数封装 | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://luojinan.github.io//favicon.ico?v=1565782954314">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://luojinan.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://luojinan.github.io/">
+        <img src="https://luojinan.github.io//images/avatar.png?v=1565782954314" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://luojinan.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">节流工具函数封装</h2>
+            <div class="post-date">2019-08-14</div>
+            
+            <div class="post-content">
+              <blockquote>
+<p>节流函数<code>throttle</code>用于<strong>解决频繁操作问题</strong>，限制一定时间内点击不触发事件</p>
+</blockquote>
+<hr>
+<p>[toc]</p>
+<hr>
+<h3 id="一-不同的实现方法">一、不同的实现方法</h3>
+<h4 id="1-定时器">1、定时器</h4>
+<ul>
+<li><strong>缺点</strong></li>
+</ul>
+<blockquote>
+<p><strong>首次也会被延迟</strong>，不会立即执行</p>
+</blockquote>
+<pre><code class="language-js">// 使用setTimeout实现
+function throttle (fn, delay) {
+  let flag = false
+  if (!flag) {
+    return function() {
+      let context = this, args = arguments
+      flag = setTimeout(() =&gt; {
+        fn.apply(context, args)
+        flag = true
+      }, delay)
+    }
+  }
+}
+</code></pre>
+<h4 id="2-时间戳">2、时间戳</h4>
+<ul>
+<li><strong>缺点</strong></li>
+</ul>
+<blockquote>
+<p>在不可操作时间段中，点击无效，<strong>时间段结束不自动执行</strong>，要再点击一次
+有时需求，频繁操作后，<strong>要记住最后一次点击，并定时结束自动执行</strong></p>
+</blockquote>
+<pre><code class="language-js">//  比较两次时间戳的间隔 是否大于等于 指定的时间 来决定是否执行事件回调
+function throttle (fn, delay) {
+  let start = 0
+  return function () {
+    if (now - start &gt;= delay) {
+        let context = this, args = arguments, now = new Date()
+        fn.apply(context, args);
+        start = now
+    }
+  }
+}
+</code></pre>
+<h3 id="二-最优方法">二、最优方法</h3>
+<ul>
+<li><strong>结合使用</strong></li>
+</ul>
+<blockquote>
+<p>首次执行使用<strong>时间戳方法</strong>（非频繁操作）
+1、后续继续使用<strong>时间戳方法</strong>(频繁操作且不需要自动执行最后一次)
+2、后续执行包括记住最后一次点击都使用<strong>定时器方法</strong>（频繁操作且自动执行最后一次）</p>
+</blockquote>
+<hr>
+<h3 id="三-开始封装工具函数">三、开始封装工具函数</h3>
+<blockquote>
+<p>这里以<code>vue</code>项目为例子封装</p>
+</blockquote>
+<h4 id="1-utils文件夹封装">1、utils文件夹封装</h4>
+<blockquote>
+<p>注意：这里利用了<code>闭包的方式（且不自执行）</code>
+<code>function return function</code>来设置<code>局部变量</code>
+关于<code>局部变量</code>看<strong>第四点</strong></p>
+</blockquote>
+<pre><code class="language-js">function Throttle (func, wait, trailing) {
+    console.log('执行函数') // 这是闭包，函数只要引入页面就执行了
+    let timer = null
+    let start = 0
+    return function () {
+        let now = new Date()
+        let remaining = wait - (now - start)
+        console.log(remaining)
+        // 拦截：延迟时间&gt;多次点击间隔时间，执行：多次点击间隔时间&gt;延迟时间
+        if ((now - start) &gt;= wait) {
+            // 由于setTimeout存在最小时间精度问题，因此会存在到达wait的时间间隔
+            // 但之前设置的setTimeout操作还没被执行，因此为保险起见，这里先清理setTimeout操作
+            timer &amp;&amp; clearTimeout(timer)
+            timer = null
+            start = now
+            console.log('非频繁操作，点击间隔为：',remaining)
+            return func()
+        } else if (!timer &amp;&amp; trailing) {
+            // trailing有值时，延时执行func函数
+            // 频繁操作，第一次设置定时器之后，之后的不会再走到这里创建定时器
+            // 清除问题，只能在第二有效点击的时候才会清除
+            timer = setTimeout(() =&gt; {
+                timer = null
+                console.log('频繁操作，定时器延时执行')
+                return func
+            }, wait)
+        }
+    }
+}
+</code></pre>
+<h4 id="2-页面内调用">2、页面内调用</h4>
+<blockquote>
+<p>1、引入工具函数<code>utils文件夹</code>
+2、并执行<code>节流闭包函数</code>，外部（即：初始化局部变量），不会执行内部<code>return</code>的<code>function</code></p>
+</blockquote>
+<pre><code class="language-js">import {Throttle} from '@/common/libs/throttle'
+let throttle = Throttle()
+</code></pre>
+<blockquote>
+<p>3、在<code>methods</code>相应<strong>需要节流的方法</strong>里调用</p>
+</blockquote>
+<pre><code class="language-js">methods:{
+    handleIcon (index) {
+        // 执行节流闭包函数，内部 function ,已初始化时间，并以此计算点击间隔
+        // 传入 回调函数fn，不可操作时长
+        throttle(this.handleClick(index),3000)
+    },
+    handleClick(index){
+        console.log( `点击了第${index}个按钮` )
+    }
+}
+</code></pre>
+<hr>
+<h3 id="四-局部变量问题">四、局部变量问题</h3>
+<blockquote>
+<p>以此<strong>抽离封装函数</strong>，做到不需要在<code>vue</code>的<code>data</code>里设置<code>变量</code>
+否则要在<code>data</code>里存入<code>点击时间戳</code>来做<strong>点击间隔判断</strong></p>
+</blockquote>
+<blockquote>
+<p>局部变量概念，把变量设为私有变量，外部函数无法修改，<strong>只能被自己修改，或者内部函数修改</strong></p>
+</blockquote>
+<p><code>function return function</code> 方式，要分开执行<code>外部</code>和<code>内部方法</code></p>
+<ul>
+<li>一次用于<strong>初始化局部变量</strong></li>
+<li>一次用于<strong>执行内部操作</strong>
+<img src="https://luojinan.github.io//post-images/1565782932409.png" alt=""></li>
+</ul>
+<hr>
+<h3 id="五-回调函数无法传参问题">五、回调函数无法传参问题</h3>
+<blockquote>
+<p>到这一步，在项目页面已经可以实现节流（既能第一次生效又能自动执行最后一次）
+但是，发现传入回调函数是整个函数，不带<code>( )</code>，即：<strong>无法带参数</strong></p>
+</blockquote>
+<h4 id="1-尝试不传入整个函数而是传入func">1、尝试不传入整个函数,而是传入<code>func()</code></h4>
+<ul>
+<li><strong>当前情况</strong></li>
+<li><strong>传入的只能是整个函数，而不发传入参数</strong>
+<img src="https://luojinan.github.io//post-images/1565782935988.png" alt=""></li>
+</ul>
+<hr>
+<ul>
+<li><strong>修改为可以传入<code>function()</code></strong></li>
+<li><strong>导致传入的不再是函数，而是一个值</strong>
+<img src="https://luojinan.github.io//post-images/1565782951392.png" alt=""></li>
+</ul>
+<hr>
+<h4 id="2-曲线救国给工具函数传参数而不是给回调函数传参数">2、曲线救国,给工具函数传参数,而不是给回调函数传参数</h4>
+<ul>
+<li><strong>节流工具函数</strong></li>
+</ul>
+<pre><code class="language-js">export function Throttle () {
+    let start = 0
+    // 传入节流时间，整个回调函数，传入回调函数的参数数组，是否自动执行标识
+    return function (wait, func, params, trailing) {
+        ...
+        ...
+        return  func(...params)
+    }
+}
+</code></pre>
+<ul>
+<li><strong>页面调用，传入节流函数的参数</strong></li>
+</ul>
+<pre><code class="language-js">handleIcon ( index, commentId ) {
+    throttle( 3000 , this.handleClick , [ index, commentId ] , 'trailing' )
+}
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://luojinan.github.io//post/emoji-zhuan-ma">
+                  <h3 class="post-title">
+                    emoji转码
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

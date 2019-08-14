@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>emoji转码 | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://luojinan.github.io//favicon.ico?v=1565782954314">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://luojinan.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://luojinan.github.io/">
+        <img src="https://luojinan.github.io//images/avatar.png?v=1565782954314" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://luojinan.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">emoji转码</h2>
+            <div class="post-date">2019-08-11</div>
+            
+            <div class="post-content">
+              <blockquote>
+<p>对于移动端，用户有可能输入<code>emoji</code>，并传入数据库，会导致<strong>无法识别而报错</strong></p>
+</blockquote>
+<blockquote>
+<p>这里涉及2个工具方法：
+1、<code>utf16的emoji表情字符</code> 转码 成<code>utf8的字符</code>
+2、<code>八进制的字符</code> 转码 成<code>十六进制的emoji表情字符</code></p>
+</blockquote>
+<hr>
+<p>[toc]</p>
+<hr>
+<h3 id="一-emoji转字符">一、emoji转字符</h3>
+<pre><code class="language-js">//把utf16的emoji表情字符进行转码成八进制的字符
+const utf16toEntities = function(str) {
+    // 检测utf16字符正则
+    var patt = /[\ud800-\udbff][\udc00-\udfff]/g
+    return str.replace(patt, function (char) {
+        var H, L, code
+        if (char.length === 2) {
+            H = char.charCodeAt(0) // 取出高位
+            L = char.charCodeAt(1) // 取出低位
+            code = (H - 0xD800) * 0x400 + 0x10000 + L - 0xDC00; // 转换算法
+            return &quot;&amp;#&quot; + code + &quot;;&quot;
+        } else {
+            return char
+        }
+    })
+}
+</code></pre>
+<h3 id="二-字符转emoji">二、字符转emoji</h3>
+<pre><code class="language-js">//将编码后的八进制的emoji表情重新解码成十六进制的表情字符
+const entitiesToUtf16 = function(str) {
+    return str.replace(/&amp;#(\d+);/g, function (match, dec) {
+        let H = Math.floor((dec - 0x10000) / 0x400) + 0xD800
+        let L = Math.floor(dec - 0x10000) % 0x400 + 0xDC00
+        return String.fromCharCode(H, L)
+    })
+}
+</code></pre>
+<h3 id="三-转义问题">三、转义问题</h3>
+<blockquote>
+<p>数据库做了安全处理，返回的字符由<code>&amp;</code>:变成了<code>&amp;amp;</code>，导致<strong>字符转emoji</strong>失败</p>
+</blockquote>
+<pre><code class="language-js">const changeList = {
+    '&amp;': '&amp;amp;',
+    '&gt;': '&amp;gt;',
+    '&lt;': '&amp;lt;',
+    &quot;'&quot;: '&amp;gt;',
+    '&quot;': '&amp;quot;',
+}
+/**
+* 由于安全原因, 数据库返回的一些字符是经过转义的, 需要翻译回来
+* 返回翻译回来的字符串
+*/
+function decodeXML (origin) {
+    var result = origin
+    for (const key in changeList) {
+        if (changeList.hasOwnProperty(key)) {
+            const item = changeList[key]
+            result = result.replace(new RegExp(item, 'gm'), key)
+        }
+    }
+    return result
+}
+</code></pre>
+<ul>
+<li><strong>在<code>二、字符转emoji</code>的方法加上，字符转义方法</strong></li>
+</ul>
+<pre><code class="language-js">//将编码后的八进制的emoji表情重新解码成十六进制的表情字符
+const entitiesToUtf16 = function(str) {
+     // 数据库返回特殊字符加上了'amp;' 做一遍转义即可
+    str = decodeXML(str)
+    return str.replace(/&amp;#(\d+);/g, function (match, dec) {
+        ...
+        ...
+    })
+}
+</code></pre>
+<h3 id="四-测试">四、测试</h3>
+<pre><code class="language-js">var testStr = &quot;正常的🔥橘🍊💪181848&quot;
+var res = utf16toEntities(testStr)
+console.log('res', res)
+var decode = entitiesToUtf16(res)
+console.log('decode', decode)
+</code></pre>
+<hr>
+<p><a href="https://juejin.im/post/5bad9140e51d450e935c6d64">关于转义涉及XSS攻击</a>
+如有建议和疑问可联系
+QQ：1017386624
+邮箱：1017386624@qq.com</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://luojinan.github.io//post/yi-dong-duan-grid-wang-ge-bu-ju">
+                  <h3 class="post-title">
+                    移动端grid网格布局
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
