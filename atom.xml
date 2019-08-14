@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-08-14T11:49:40.884Z</updated>
+    <updated>2019-08-14T12:27:25.341Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -10,6 +10,52 @@
     <logo>https://luojinan.github.io//images/avatar.png</logo>
     <icon>https://luojinan.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[短信倒计时]]></title>
+        <id>https://luojinan.github.io//post/duan-xin-dao-ji-shi</id>
+        <link href="https://luojinan.github.io//post/duan-xin-dao-ji-shi">
+        </link>
+        <updated>2019-08-14T12:27:06.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>调用发送短信接口后，<strong>开启倒计时</strong>、并<strong>使按钮不可点击</strong></p>
+</blockquote>
+<h3 id="效果图">效果图</h3>
+<p><img src="https://luojinan.github.io//post-images/1565785631215.gif" alt=""></p>
+<hr>
+<h3 id="实现步骤">实现步骤</h3>
+<ul>
+<li><strong>点击按钮</strong>，调用短信接口成功后把 <code>canClick = false</code></li>
+<li>vue项目使用<code>watch</code>监听<code>canClick</code>标志符
+<ul>
+<li><code>canClick</code>变化为<code>true</code>或<code>false</code>都会<strong>触发监听</strong></li>
+<li>而<strong>倒计时</strong>只会在<code>canClick</code>由<code>true</code>变为<code>false</code>（点击发送）时触发</li>
+</ul>
+</li>
+<li><strong>倒计时结束</strong>清除定时器，并把 <code>canClick = true</code></li>
+</ul>
+<hr>
+<h3 id="部分示例代码">部分示例代码</h3>
+<pre><code class="language-js">watch: {
+    canClick (e) {
+        // 监听canclick变为false时执行倒计时
+        if ( !e ) {
+            clearInterval( this.timer )   // 确保上一次的定时器被清除(可能有延迟)
+            this.timer = setInterval( ( )  =&gt; {
+                this.second--
+                // 当秒数减为0时，重置秒数和按钮可点击状态
+                if (!this.second) {
+                    this.second = 60
+                    this.canClick = true
+                    clearInterval(this.timer)
+                    this.disabled = false
+                }
+            }, 1000)    //每隔1000毫秒减1 second
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[节流工具函数封装]]></title>
         <id>https://luojinan.github.io//post/jie-liu-gong-ju-han-shu-feng-zhuang</id>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Hello Gridea | Gridea</title>
+<title>短信倒计时 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,45 +92,60 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Hello Gridea</h2>
-            <div class="post-date">2018-12-12</div>
-            
-              <div class="feature-container" style="background-image: url('https://luojinan.github.io//post-images/hello-gridea.png')">
-              </div>
+            <h2 class="post-title">短信倒计时</h2>
+            <div class="post-date">2019-08-14</div>
             
             <div class="post-content">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+              <blockquote>
+<p>调用发送短信接口后，<strong>开启倒计时</strong>、并<strong>使按钮不可点击</strong></p>
+</blockquote>
+<h3 id="效果图">效果图</h3>
+<p><img src="https://luojinan.github.io//post-images/1565785631215.gif" alt=""></p>
+<hr>
+<h3 id="实现步骤">实现步骤</h3>
+<ul>
+<li><strong>点击按钮</strong>，调用短信接口成功后把 <code>canClick = false</code></li>
+<li>vue项目使用<code>watch</code>监听<code>canClick</code>标志符
+<ul>
+<li><code>canClick</code>变化为<code>true</code>或<code>false</code>都会<strong>触发监听</strong></li>
+<li>而<strong>倒计时</strong>只会在<code>canClick</code>由<code>true</code>变为<code>false</code>（点击发送）时触发</li>
+</ul>
+</li>
+<li><strong>倒计时结束</strong>清除定时器，并把 <code>canClick = true</code></li>
+</ul>
+<hr>
+<h3 id="部分示例代码">部分示例代码</h3>
+<pre><code class="language-js">watch: {
+    canClick (e) {
+        // 监听canclick变为false时执行倒计时
+        if ( !e ) {
+            clearInterval( this.timer )   // 确保上一次的定时器被清除(可能有延迟)
+            this.timer = setInterval( ( )  =&gt; {
+                this.second--
+                // 当秒数减为0时，重置秒数和按钮可点击状态
+                if (!this.second) {
+                    this.second = 60
+                    this.canClick = true
+                    clearInterval(this.timer)
+                    this.disabled = false
+                }
+            }, 1000)    //每隔1000毫秒减1 second
+        }
+    }
+}
+</code></pre>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://luojinan.github.io//tag/gridea" class="tag">
-                    Gridea
-                  </a>
-                
-              </div>
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://luojinan.github.io//post/jie-liu-gong-ju-han-shu-feng-zhuang">
+                  <h3 class="post-title">
+                    节流工具函数封装
+                  </h3>
+                </a>
+              </div>
             
 
             
