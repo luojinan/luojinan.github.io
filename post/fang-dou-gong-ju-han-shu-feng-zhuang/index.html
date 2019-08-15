@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>短信倒计时 | Gridea</title>
+<title>防抖工具函数封装 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,47 +92,33 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">短信倒计时</h2>
-            <div class="post-date">2019-08-14</div>
+            <h2 class="post-title">防抖工具函数封装</h2>
+            <div class="post-date">2019-08-15</div>
             
             <div class="post-content">
               <blockquote>
-<p>调用发送短信接口后，<strong>开启倒计时</strong>、并<strong>使按钮不可点击</strong></p>
+<p>防抖函数<code>debounce</code>用于<strong>解决连续触发同一事件问题</strong>，限制延迟一定时间后触发事件</p>
 </blockquote>
 <h3 id="效果图">效果图</h3>
-<p><img src="https://luojinan.github.io//post-images/1565785631215.gif" alt=""></p>
-<hr>
-<h3 id="实现步骤">实现步骤</h3>
 <ul>
-<li><strong>点击按钮</strong>，调用短信接口成功后把 <code>canClick = false</code></li>
-<li>vue项目使用<code>watch</code>监听<code>canClick</code>标志符
-<ul>
-<li><code>canClick</code>变化为<code>true</code>或<code>false</code>都会<strong>触发监听</strong></li>
-<li>而<strong>倒计时</strong>只会在<code>canClick</code>由<code>true</code>变为<code>false</code>（点击发送）时触发</li>
-</ul>
-</li>
-<li><strong>倒计时结束</strong>清除定时器，并把 <code>canClick = true</code></li>
+<li><strong>没有防抖的输入框</strong>
+<img src="https://luojinan.github.io//post-images/1565834657948.gif" alt=""></li>
+<li><strong>加了防抖的输入框</strong>
+<img src="https://luojinan.github.io//post-images/1565834660305.gif" alt=""></li>
 </ul>
 <hr>
-<h3 id="部分示例代码">部分示例代码</h3>
-<pre><code class="language-js">watch: {
-    canClick (e) {
-        // 监听canclick变为false时执行倒计时
-        if ( !e ) {
-            clearInterval( this.timer )   // 确保上一次的定时器被清除(可能有延迟)
-            this.timer = setInterval( ( )  =&gt; {
-                this.second--
-                // 当秒数减为0时，重置秒数和按钮可点击状态
-                if (!this.second) {
-                    this.second = 60
-                    this.canClick = true
-                    clearInterval(this.timer)
-                    this.disabled = false
-                }
-            }, 1000)    //每隔1000毫秒减1 second
-        }
-    }
-}
+<h3 id="使用方法">使用方法</h3>
+<p>1、<strong>在import部分 引入并声明构造函数</strong></p>
+<pre><code class="language-js">  import Debounce from '@/common/libs/debounce'
+  let debounce = Debounce()
+</code></pre>
+<p>2、<strong>在要节流的方法处使用</strong>(传入回调函数外，还可传入回调函数需要的参数，见源码)</p>
+<pre><code class="language-js"> changePhone (e) {
+   debounce(() =&gt; {
+     console.log(e.mp.detail, '输入的手机号')
+     this.phone = e.mp.detail
+   })
+ }
 </code></pre>
 
             </div>
@@ -140,9 +126,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://luojinan.github.io//post/jie-liu-gong-ju-han-shu-feng-zhuang">
+                <a href="https://luojinan.github.io//post/duan-xin-dao-ji-shi">
                   <h3 class="post-title">
-                    节流工具函数封装
+                    短信倒计时
                   </h3>
                 </a>
               </div>

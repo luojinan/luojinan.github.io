@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-08-14T12:27:25.341Z</updated>
+    <updated>2019-08-15T02:04:29.701Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://luojinan.github.io//images/avatar.png</logo>
     <icon>https://luojinan.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[防抖工具函数封装]]></title>
+        <id>https://luojinan.github.io//post/fang-dou-gong-ju-han-shu-feng-zhuang</id>
+        <link href="https://luojinan.github.io//post/fang-dou-gong-ju-han-shu-feng-zhuang">
+        </link>
+        <updated>2019-08-15T02:03:59.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>防抖函数<code>debounce</code>用于<strong>解决连续触发同一事件问题</strong>，限制延迟一定时间后触发事件</p>
+</blockquote>
+<h3 id="效果图">效果图</h3>
+<ul>
+<li><strong>没有防抖的输入框</strong>
+<img src="https://luojinan.github.io//post-images/1565834657948.gif" alt=""></li>
+<li><strong>加了防抖的输入框</strong>
+<img src="https://luojinan.github.io//post-images/1565834660305.gif" alt=""></li>
+</ul>
+<hr>
+<h3 id="使用方法">使用方法</h3>
+<p>1、<strong>在import部分 引入并声明构造函数</strong></p>
+<pre><code class="language-js">  import Debounce from '@/common/libs/debounce'
+  let debounce = Debounce()
+</code></pre>
+<p>2、<strong>在要节流的方法处使用</strong>(传入回调函数外，还可传入回调函数需要的参数，见源码)</p>
+<pre><code class="language-js"> changePhone (e) {
+   debounce(() =&gt; {
+     console.log(e.mp.detail, '输入的手机号')
+     this.phone = e.mp.detail
+   })
+ }
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[短信倒计时]]></title>
         <id>https://luojinan.github.io//post/duan-xin-dao-ji-shi</id>
