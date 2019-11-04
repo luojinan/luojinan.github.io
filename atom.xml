@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-08-15T02:04:29.701Z</updated>
+    <updated>2019-11-04T02:02:31.694Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -10,6 +10,149 @@
     <logo>https://luojinan.github.io//images/avatar.png</logo>
     <icon>https://luojinan.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[2019.11 | 本地缓存方法封装]]></title>
+        <id>https://luojinan.github.io//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang</id>
+        <link href="https://luojinan.github.io//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang">
+        </link>
+        <updated>2019-11-04T02:00:52.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>原生的本地缓存方法api调用，有一定限制和麻烦的地方</p>
+</blockquote>
+<p>为了达到效果
+参考：<a href="https://github.com/wuchangming/web-storage-cache">web-storage-cache的github库</a></p>
+<hr>
+<p>[toc]</p>
+<hr>
+<h3 id="例子">例子🌰</h3>
+<pre><code class="language-js">myStorage = new xxx()
+
+myStorage.set('key','value',{exp:100})  // key value(字符串/对象) 超时时间设置(单位秒/日期字符串/date类型)
+myStorage.get('key')  // 自动把字符串转为对象
+myStorage.delete('key')
+</code></pre>
+<p><img src="https://luojinan.github.io//post-images/1572832904458.png" alt=""></p>
+<hr>
+<h3 id="set方法">set()方法</h3>
+<h4 id="实现步骤">实现步骤：</h4>
+<ul>
+<li>key格式判断（字符串、数字转换）</li>
+<li>时间参数，数字补成 <code>{ time: 数字 }</code></li>
+<li>构建实际存入本地缓存的<code>对象</code>
+<ul>
+<li>当前时间戳</li>
+<li>结束时间戳（三种情况生成）</li>
+<li>实际值（对象转字符串）</li>
+</ul>
+</li>
+<li>用<code>try catch</code>来存入<code>本地缓存localStorage</code></li>
+</ul>
+<h4 id="实现代码">实现代码：</h4>
+<pre><code class="language-js">set(key, value,options) {
+    // 判断key值，判断val值，判断时间值
+    key = _checkKey(key)
+    // 判断options入参，不是对象的话，转换为对象
+    if (typeof options === 'number') {
+      options = {
+        time: options
+      }
+    }
+    const obj = {
+      val: _serialize(value),
+      nowTimeNum: (new Date()).getTime(), // 当前时间戳
+      endTimeNum: _getEndDateByOption(options.time).getTime()
+    }
+    try {
+      this.storage.setItem(key, _serialize(obj))
+    } catch (err) {
+      console.log('存入本地缓存失败',err)
+    }
+    return _serialize(value)
+  }
+</code></pre>
+<p>👆过期时间要转换为<code>具体时间戳</code>（传入过期时间有<strong>3种情况</strong>）</p>
+<pre><code class="language-js">// timer三种情况：数字类型(秒为单位)，字符串类型（日期格式），date对象类型
+function _getEndDateByOption(timer, now) {
+  now = now || new Date()
+  // time是数字(秒为单位)或者日期字符串的情况
+  if (typeof timer === 'number') {
+    timer = new Date(now.getTime() + timer * 1000)
+  } else if (typeof timer === 'string') {
+    timer = new Date(timer) // 字符串结束日期，可能设置错误，写了比当前时间早（要做处理吗？）
+  }
+ 
+  // time是Date对象的情况
+  if (timer &amp;&amp; !_isDateObj(timer)) {
+    throw new Error('`timer` parameter cannot be converted to a valid Date instance')
+  }
+  return timer
+}
+</code></pre>
+<p>最终存入的<strong>数据格式</strong>
+<img src="https://luojinan.github.io//post-images/1572832923177.png" alt=""></p>
+<hr>
+<h3 id="get方法">get()方法</h3>
+<h4 id="实现步骤-2">实现步骤：</h4>
+<ul>
+<li>key格式判断（字符串、数字转换）</li>
+<li>用<code>try catch</code>来取<code>本地缓存localStorage</code>
+<ul>
+<li>判断是<strong>普通本地缓存数据</strong>(这条数据里没有<code>同时存在过期时间实际值当前时间</code>)</li>
+<li>有结束时间，判断<strong>是否过期</strong>：
+<ul>
+<li>过期：删除本条数据，并返回<code>null</code></li>
+<li>未过期：返回数据中的实际值（<code>字符串转对象</code>）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现代码-2">实现代码：</h4>
+<pre><code class="language-js">  get(key) {
+    key = _checkKey(key)
+    let obj = null
+    try {
+      obj = _deserialize(this.storage.getItem(key))
+    } catch (err) {
+      console.log('获取本地缓存失败',err)
+      return null
+    }
+    // 判断本地缓存数据里是否有结束时间
+    if (_checkObj(obj)) {
+      if (!_isTimeOut(obj)) return _deserialize(obj.val)
+      else {
+        this.delete(key)
+        return null
+      }
+    }
+    // 获取普通本地缓存数据（没有设置过期时间）
+    return obj
+  },
+</code></pre>
+<p>👆判断本地缓存对象（存入时,一定被转为对象了）是否<strong>同时有结束时间等</strong></p>
+<pre><code class="language-js">// 判断本地缓存数据里是否有结束时间（内含 c-当前时间戳 b-超时时间戳  v-内存值）
+function _checkObj(item) {
+  if (typeof item !== 'object') {
+    return false;
+  }
+  if (item) {
+    if ('nowTimeNum' in item &amp;&amp; 'endTimeNum' in item &amp;&amp; 'val' in item) {
+      return true;
+    }
+  }
+  return false;
+}
+</code></pre>
+<hr>
+<h3 id="其他">其他</h3>
+<p><strong>封装成构造函数</strong>只是为了能用<code>this.storage</code>这个值（<code>localStorage对象</code>）</p>
+<p>实际上<strong>不需要</strong>封装成构造函数，<code>this.storage</code>这个值没必要抽出来...
+最终<strong>暴露</strong>出 <code>{ get(), set() }</code>这种形式用好像更方便</p>
+<hr>
+<p><strong>最终代码：</strong>
+<a href="https://github.com/luojinan/utils/blob/master/myStorage/myStorage.js">github</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[防抖工具函数封装]]></title>
         <id>https://luojinan.github.io//post/fang-dou-gong-ju-han-shu-feng-zhuang</id>
