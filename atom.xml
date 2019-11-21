@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-11-04T02:03:00.380Z</updated>
+    <updated>2019-11-21T01:14:51.938Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -10,6 +10,117 @@
     <logo>https://luojinan.github.io//images/avatar.png</logo>
     <icon>https://luojinan.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[小程序支付步骤]]></title>
+        <id>https://luojinan.github.io//post/xiao-cheng-xu-zhi-fu-bu-zou</id>
+        <link href="https://luojinan.github.io//post/xiao-cheng-xu-zhi-fu-bu-zou">
+        </link>
+        <updated>2019-11-21T01:09:24.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_4&amp;index=3">小程序支付文档</a></p>
+<p><a href="https://open.swiftpass.cn/openapi/doc?index_1=3&amp;index_2=1&amp;chapter_1=190&amp;chapter_2=953">威富通文档</a></p>
+<p><a href="https://github.com/luojinan/utils/blob/master/patSteps/index.vue">github--支付组件逻辑部分</a></p>
+<p><img src="https://luojinan.github.io//post-images/1574298585705.png" alt=""></p>
+<p><img src="https://luojinan.github.io//post-images/1574298592249.png" alt=""></p>
+<hr>
+<p>由图可知，支付流程主要分为，<code>创建订单</code>，<code>支付步骤</code>，<code>支付完成对账</code></p>
+<ul>
+<li><strong>创建订单</strong>，由小程序openid、商品id，创建出订单号和支付用的参数（给微信支付api）</li>
+<li><strong>支付步骤</strong>。由<code>前端小程序api</code>做好不同情况处理，点击取消点击<code>确定，异常</code>等</li>
+<li><strong>支付完成对账</strong>，由订单号、商品名、支付信息<code>得已购信息</code></li>
+</ul>
+<p><img src="https://luojinan.github.io//post-images/1574298597465.png" alt=""></p>
+<hr>
+<h3 id="1-创建订单接口createpayorder">1、创建订单接口<code>createPayOrder</code></h3>
+<ul>
+<li>入参：
+<ul>
+<li>代金券id</li>
+<li>用户id</li>
+</ul>
+</li>
+<li>出参：
+<ul>
+<li>支付信息payinfo</li>
+<li>订单id</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-微信发起支付wxrequestpayment">2、微信发起支付<code>wx.requestPayment</code></h3>
+<ul>
+<li>入参：
+<ul>
+<li>支付信息payInfo</li>
+</ul>
+</li>
+<li>出参：
+<ul>
+<li>状态
+👆注意，promisify之后，取消支付也是走的catch路线
+支付成功，不像接口有个statusCode，而是<code>res.errMsg == 'requestPayment:ok'</code></li>
+</ul>
+</li>
+</ul>
+<p>👇微信api发起支付，有如下三种情况</p>
+<ul>
+<li>取消支付</li>
+<li>支付失败</li>
+<li>支付成功</li>
+</ul>
+<blockquote>
+<p>取消支付：调用取消订单接口。因为订单已经创建，所以要做释放内存清除无效订单的操作，这个接口实际上相当于删除订单接口
+支付失败：弹窗提示
+支付成功：调用对账接口。获取到已购代金券id，用于跳转到该已购代金券详情页面等后续操作。</p>
+</blockquote>
+<hr>
+<h3 id="3-取消订单接口cancelbuy">3、取消订单接口<code>cancelBuy</code></h3>
+<ul>
+<li>入参
+<ul>
+<li>订单id</li>
+<li>代金券id</li>
+<li>用户id</li>
+</ul>
+</li>
+<li>出参
+<ul>
+<li>status</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-对账接口paystatusforpage">4、对账接口<code>payStatusForPage</code></h3>
+<ul>
+<li>入参
+<ul>
+<li>订单id</li>
+<li>跳转页面（？？？）</li>
+<li>支付信息</li>
+<li>代金券名（？？？）</li>
+</ul>
+</li>
+<li>出参
+<ul>
+<li>获得积分</li>
+<li>已购代金卷id</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="注意点">注意点</h3>
+<h4 id="1-decodeuricomponent">1、decodeURIComponent()</h4>
+<p><img src="https://luojinan.github.io//post-images/1574298604909.png" alt="">
+从上一个页面传递过来的对象值，经过json转为对象之前要
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">MDN--decodeURIComponent()</a>
+示例
+<img src="https://luojinan.github.io//post-images/1574298611697.png" alt="">
+👆可知是用来解码中文.......</p>
+<p>不要用这种方法做页面传值，应该存本地缓存传对象，获取到对象之后清除本地缓存</p>
+<hr>
+<h4 id="2-catch里的return">2、catch里的return👇</h4>
+<p><img src="https://luojinan.github.io//post-images/1574298617306.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2019.11 | 本地缓存方法封装]]></title>
         <id>https://luojinan.github.io//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang</id>
