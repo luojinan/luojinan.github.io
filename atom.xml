@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://luojinan.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-12-19T15:00:22.010Z</updated>
+    <updated>2019-12-19T15:16:53.672Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://luojinan.github.io/"/>
     <link rel="self" href="https://luojinan.github.io//atom.xml"/>
@@ -17,6 +17,8 @@
         </link>
         <updated>2019-12-19T14:50:51.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://luojinan.github.io//post-images/1576767619091.jpg" alt=""></p>
+<p>👇轮播图
+<img src="https://luojinan.github.io//post-images/1576768609909.jpg" alt=""></p>
 ]]></content>
     </entry>
     <entry>
