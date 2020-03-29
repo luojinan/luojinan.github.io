@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" >
 
-<title>节流工具函数封装 | Gridea</title>
+<title>节流工具函数封装 | 个人学习网站</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://mr-jinan.cn//favicon.ico?v=1585464232694">
+<link rel="shortcut icon" href="https://luojinan.github.io/favicon.ico?v=1585471836824">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="http://mr-jinan.cn//styles/main.css">
+<link rel="stylesheet" href="https://luojinan.github.io/styles/main.css">
 
 
 
@@ -29,9 +29,9 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="http://mr-jinan.cn/">
-        <img src="http://mr-jinan.cn//images/avatar.png?v=1585464232694" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
+      <a class="site-title-container" href="https://luojinan.github.io">
+        <img src="https://luojinan.github.io/images/avatar.png?v=1585471836824" class="site-logo">
+        <h1 class="site-title">个人学习网站</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
         <div class="line"></div>
@@ -83,7 +83,7 @@
       温故而知新
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://mr-jinan.cn//atom.xml" target="_blank">RSS</a>
+      备案号： <a href="http://beian.miit.gov.cn或http://www.beian.miit.gov.cn" target="_blank">粤ICP备20011329号</a>，版权所有 | <a class="rss" href="https://luojinan.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -129,7 +129,7 @@ function throttle (fn, delay) {
 <li><strong>缺点</strong></li>
 </ul>
 <blockquote>
-<p>在不可操作时间段中，点击无效，<strong>时间段结束不自动执行</strong>，要再点击一次
+<p>在不可操作时间段中，点击无效，<strong>时间段结束不自动执行</strong>，要再点击一次<br>
 有时需求，频繁操作后，<strong>要记住最后一次点击，并定时结束自动执行</strong></p>
 </blockquote>
 <pre><code class="language-js">//  比较两次时间戳的间隔 是否大于等于 指定的时间 来决定是否执行事件回调
@@ -149,8 +149,8 @@ function throttle (fn, delay) {
 <li><strong>结合使用</strong></li>
 </ul>
 <blockquote>
-<p>首次执行使用<strong>时间戳方法</strong>（非频繁操作）
-1、后续继续使用<strong>时间戳方法</strong>(频繁操作且不需要自动执行最后一次)
+<p>首次执行使用<strong>时间戳方法</strong>（非频繁操作）<br>
+1、后续继续使用<strong>时间戳方法</strong>(频繁操作且不需要自动执行最后一次)<br>
 2、后续执行包括记住最后一次点击都使用<strong>定时器方法</strong>（频繁操作且自动执行最后一次）</p>
 </blockquote>
 <hr>
@@ -160,8 +160,8 @@ function throttle (fn, delay) {
 </blockquote>
 <h4 id="1-utils文件夹封装">1、utils文件夹封装</h4>
 <blockquote>
-<p>注意：这里利用了<code>闭包的方式（且不自执行）</code>
-<code>function return function</code>来设置<code>局部变量</code>
+<p>注意：这里利用了<code>闭包的方式（且不自执行）</code><br>
+<code>function return function</code>来设置<code>局部变量</code><br>
 关于<code>局部变量</code>看<strong>第四点</strong></p>
 </blockquote>
 <pre><code class="language-js">function Throttle (func, wait, trailing) {
@@ -196,7 +196,7 @@ function throttle (fn, delay) {
 </code></pre>
 <h4 id="2-页面内调用">2、页面内调用</h4>
 <blockquote>
-<p>1、引入工具函数<code>utils文件夹</code>
+<p>1、引入工具函数<code>utils文件夹</code><br>
 2、并执行<code>节流闭包函数</code>，外部（即：初始化局部变量），不会执行内部<code>return</code>的<code>function</code></p>
 </blockquote>
 <pre><code class="language-js">import {Throttle} from '@/common/libs/throttle'
@@ -219,7 +219,7 @@ let throttle = Throttle()
 <hr>
 <h3 id="四-局部变量问题">四、局部变量问题</h3>
 <blockquote>
-<p>以此<strong>抽离封装函数</strong>，做到不需要在<code>vue</code>的<code>data</code>里设置<code>变量</code>
+<p>以此<strong>抽离封装函数</strong>，做到不需要在<code>vue</code>的<code>data</code>里设置<code>变量</code><br>
 否则要在<code>data</code>里存入<code>点击时间戳</code>来做<strong>点击间隔判断</strong></p>
 </blockquote>
 <blockquote>
@@ -228,26 +228,26 @@ let throttle = Throttle()
 <p><code>function return function</code> 方式，要分开执行<code>外部</code>和<code>内部方法</code></p>
 <ul>
 <li>一次用于<strong>初始化局部变量</strong></li>
-<li>一次用于<strong>执行内部操作</strong>
-<img src="http://mr-jinan.cn//post-images/1565782932409.png" alt=""></li>
+<li>一次用于<strong>执行内部操作</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782932409.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h3 id="五-回调函数无法传参问题">五、回调函数无法传参问题</h3>
 <blockquote>
-<p>到这一步，在项目页面已经可以实现节流（既能第一次生效又能自动执行最后一次）
+<p>到这一步，在项目页面已经可以实现节流（既能第一次生效又能自动执行最后一次）<br>
 但是，发现传入回调函数是整个函数，不带<code>( )</code>，即：<strong>无法带参数</strong></p>
 </blockquote>
 <h4 id="1-尝试不传入整个函数而是传入func">1、尝试不传入整个函数,而是传入<code>func()</code></h4>
 <ul>
 <li><strong>当前情况</strong></li>
-<li><strong>传入的只能是整个函数，而不发传入参数</strong>
-<img src="http://mr-jinan.cn//post-images/1565782935988.png" alt=""></li>
+<li><strong>传入的只能是整个函数，而不发传入参数</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782935988.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <ul>
 <li><strong>修改为可以传入<code>function()</code></strong></li>
-<li><strong>导致传入的不再是函数，而是一个值</strong>
-<img src="http://mr-jinan.cn//post-images/1565782951392.png" alt=""></li>
+<li><strong>导致传入的不再是函数，而是一个值</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782951392.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h4 id="2-曲线救国给工具函数传参数而不是给回调函数传参数">2、曲线救国,给工具函数传参数,而不是给回调函数传参数</h4>
@@ -277,7 +277,7 @@ let throttle = Throttle()
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://mr-jinan.cn//post/emoji-zhuan-ma">
+                <a href="https://luojinan.github.io/post/emoji-zhuan-ma/">
                   <h3 class="post-title">
                     emoji转码
                   </h3>

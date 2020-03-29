@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" >
 
-<title>2019.11 | 本地缓存方法封装 | Gridea</title>
+<title>2019.11 | 本地缓存方法封装 | 个人学习网站</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://mr-jinan.cn//favicon.ico?v=1585464232694">
+<link rel="shortcut icon" href="https://luojinan.github.io/favicon.ico?v=1585471836824">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="http://mr-jinan.cn//styles/main.css">
+<link rel="stylesheet" href="https://luojinan.github.io/styles/main.css">
 
 
 
@@ -29,9 +29,9 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="http://mr-jinan.cn/">
-        <img src="http://mr-jinan.cn//images/avatar.png?v=1585464232694" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
+      <a class="site-title-container" href="https://luojinan.github.io">
+        <img src="https://luojinan.github.io/images/avatar.png?v=1585471836824" class="site-logo">
+        <h1 class="site-title">个人学习网站</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
         <div class="line"></div>
@@ -83,7 +83,7 @@
       温故而知新
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://mr-jinan.cn//atom.xml" target="_blank">RSS</a>
+      备案号： <a href="http://beian.miit.gov.cn或http://www.beian.miit.gov.cn" target="_blank">粤ICP备20011329号</a>，版权所有 | <a class="rss" href="https://luojinan.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -99,7 +99,7 @@
               <blockquote>
 <p>原生的本地缓存方法api调用，有一定限制和麻烦的地方</p>
 </blockquote>
-<p>为了达到效果
+<p>为了达到效果<br>
 参考：<a href="https://github.com/wuchangming/web-storage-cache">web-storage-cache的github库</a></p>
 <hr>
 <p>[toc]</p>
@@ -111,7 +111,7 @@ myStorage.set('key','value',{exp:100})  // key value(字符串/对象) 超�
 myStorage.get('key')  // 自动把字符串转为对象
 myStorage.delete('key')
 </code></pre>
-<p><img src="http://mr-jinan.cn//post-images/1572832904458.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1572832904458.png" alt="" loading="lazy"></figure>
 <hr>
 <h3 id="set方法">set()方法</h3>
 <h4 id="实现步骤">实现步骤：</h4>
@@ -168,8 +168,8 @@ function _getEndDateByOption(timer, now) {
   return timer
 }
 </code></pre>
-<p>最终存入的<strong>数据格式</strong>
-<img src="http://mr-jinan.cn//post-images/1572832923177.png" alt=""></p>
+<p>最终存入的<strong>数据格式</strong><br>
+<img src="https://luojinan.github.io/post-images/1572832923177.png" alt="" loading="lazy"></p>
 <hr>
 <h3 id="get方法">get()方法</h3>
 <h4 id="实现步骤-2">实现步骤：</h4>
@@ -226,10 +226,10 @@ function _checkObj(item) {
 <hr>
 <h3 id="其他">其他</h3>
 <p><strong>封装成构造函数</strong>只是为了能用<code>this.storage</code>这个值（<code>localStorage对象</code>）</p>
-<p>实际上<strong>不需要</strong>封装成构造函数，<code>this.storage</code>这个值没必要抽出来...
+<p>实际上<strong>不需要</strong>封装成构造函数，<code>this.storage</code>这个值没必要抽出来...<br>
 最终<strong>暴露</strong>出 <code>{ get(), set() }</code>这种形式用好像更方便</p>
 <hr>
-<p><strong>最终代码：</strong>
+<p><strong>最终代码：</strong><br>
 <a href="https://github.com/luojinan/utils/blob/master/myStorage/myStorage.js">github</a></p>
 
             </div>
@@ -237,7 +237,7 @@ function _checkObj(item) {
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://mr-jinan.cn//post/fang-dou-gong-ju-han-shu-feng-zhuang">
+                <a href="https://luojinan.github.io/post/fang-dou-gong-ju-han-shu-feng-zhuang/">
                   <h3 class="post-title">
                     防抖工具函数封装
                   </h3>

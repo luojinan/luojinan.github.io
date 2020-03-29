@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" >
 
-<title>小程序支付步骤 | Gridea</title>
+<title>小程序支付步骤 | 个人学习网站</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://mr-jinan.cn//favicon.ico?v=1585464232694">
+<link rel="shortcut icon" href="https://luojinan.github.io/favicon.ico?v=1585471836824">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="http://mr-jinan.cn//styles/main.css">
+<link rel="stylesheet" href="https://luojinan.github.io/styles/main.css">
 
 
 
@@ -29,9 +29,9 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="http://mr-jinan.cn/">
-        <img src="http://mr-jinan.cn//images/avatar.png?v=1585464232694" class="site-logo">
-        <h1 class="site-title">Gridea</h1>
+      <a class="site-title-container" href="https://luojinan.github.io">
+        <img src="https://luojinan.github.io/images/avatar.png?v=1585471836824" class="site-logo">
+        <h1 class="site-title">个人学习网站</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
         <div class="line"></div>
@@ -83,7 +83,7 @@
       温故而知新
     </div>
     <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="http://mr-jinan.cn//atom.xml" target="_blank">RSS</a>
+      备案号： <a href="http://beian.miit.gov.cn或http://www.beian.miit.gov.cn" target="_blank">粤ICP备20011329号</a>，版权所有 | <a class="rss" href="https://luojinan.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -99,8 +99,8 @@
               <p><a href="https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_4&amp;index=3">小程序支付文档</a></p>
 <p><a href="https://open.swiftpass.cn/openapi/doc?index_1=3&amp;index_2=1&amp;chapter_1=190&amp;chapter_2=953">威富通文档</a></p>
 <p><a href="https://github.com/luojinan/utils/blob/master/patSteps/index.vue">github--支付组件逻辑部分</a></p>
-<p><img src="http://mr-jinan.cn//post-images/1574298585705.png" alt=""></p>
-<p><img src="http://mr-jinan.cn//post-images/1574298592249.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1574298585705.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://luojinan.github.io/post-images/1574298592249.png" alt="" loading="lazy"></figure>
 <hr>
 <p>由图可知，支付流程主要分为，<code>创建订单</code>，<code>支付步骤</code>，<code>支付完成对账</code></p>
 <ul>
@@ -108,7 +108,7 @@
 <li><strong>支付步骤</strong>。由<code>前端小程序api</code>做好不同情况处理，点击取消点击<code>确定，异常</code>等</li>
 <li><strong>支付完成对账</strong>，由订单号、商品名、支付信息<code>得已购信息</code></li>
 </ul>
-<p><img src="http://mr-jinan.cn//post-images/1574298597465.png" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="https://luojinan.github.io/post-images/1574298597465.png" alt="" loading="lazy"></figure>
 <hr>
 <h3 id="1-创建订单接口createpayorder">1、创建订单接口<code>createPayOrder</code></h3>
 <ul>
@@ -135,8 +135,8 @@
 </li>
 <li>出参：
 <ul>
-<li>状态
-👆注意，promisify之后，取消支付也是走的catch路线
+<li>状态<br>
+👆注意，promisify之后，取消支付也是走的catch路线<br>
 支付成功，不像接口有个statusCode，而是<code>res.errMsg == 'requestPayment:ok'</code></li>
 </ul>
 </li>
@@ -148,8 +148,8 @@
 <li>支付成功</li>
 </ul>
 <blockquote>
-<p>取消支付：调用取消订单接口。因为订单已经创建，所以要做释放内存清除无效订单的操作，这个接口实际上相当于删除订单接口
-支付失败：弹窗提示
+<p>取消支付：调用取消订单接口。因为订单已经创建，所以要做释放内存清除无效订单的操作，这个接口实际上相当于删除订单接口<br>
+支付失败：弹窗提示<br>
 支付成功：调用对账接口。获取到已购代金券id，用于跳转到该已购代金券详情页面等后续操作。</p>
 </blockquote>
 <hr>
@@ -189,23 +189,23 @@
 <hr>
 <h3 id="注意点">注意点</h3>
 <h4 id="1-decodeuricomponent">1、decodeURIComponent()</h4>
-<p><img src="http://mr-jinan.cn//post-images/1574298604909.png" alt="">
-从上一个页面传递过来的对象值，经过json转为对象之前要
-<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">MDN--decodeURIComponent()</a>
-示例
-<img src="http://mr-jinan.cn//post-images/1574298611697.png" alt="">
+<p><img src="https://luojinan.github.io/post-images/1574298604909.png" alt="" loading="lazy"><br>
+从上一个页面传递过来的对象值，经过json转为对象之前要<br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">MDN--decodeURIComponent()</a><br>
+示例<br>
+<img src="https://luojinan.github.io/post-images/1574298611697.png" alt="" loading="lazy"><br>
 👆可知是用来解码中文.......</p>
 <p>不要用这种方法做页面传值，应该存本地缓存传对象，获取到对象之后清除本地缓存</p>
 <hr>
 <h4 id="2-catch里的return">2、catch里的return👇</h4>
-<p><img src="http://mr-jinan.cn//post-images/1574298617306.png" alt=""></p>
+<figure data-type="image" tabindex="4"><img src="https://luojinan.github.io/post-images/1574298617306.png" alt="" loading="lazy"></figure>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="http://mr-jinan.cn//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang">
+                <a href="https://luojinan.github.io/post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang/">
                   <h3 class="post-title">
                     2019.11 | 本地缓存方法封装
                   </h3>

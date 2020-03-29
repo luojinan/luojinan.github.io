@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://mr-jinan.cn/</id>
-    <title>Gridea</title>
-    <updated>2020-03-29T06:44:01.060Z</updated>
+    <id>https://luojinan.github.io</id>
+    <title>个人学习网站</title>
+    <updated>2020-03-29T08:50:38.631Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://mr-jinan.cn/"/>
-    <link rel="self" href="http://mr-jinan.cn//atom.xml"/>
+    <link rel="alternate" href="https://luojinan.github.io"/>
+    <link rel="self" href="https://luojinan.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://mr-jinan.cn//images/avatar.png</logo>
-    <icon>http://mr-jinan.cn//favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <logo>https://luojinan.github.io/images/avatar.png</logo>
+    <icon>https://luojinan.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, 个人学习网站</rights>
     <entry>
         <title type="html"><![CDATA[我的图床]]></title>
-        <id>http://mr-jinan.cn//post/wo-de-tu-chuang</id>
-        <link href="http://mr-jinan.cn//post/wo-de-tu-chuang">
+        <id>https://luojinan.github.io/post/wo-de-tu-chuang/</id>
+        <link href="https://luojinan.github.io/post/wo-de-tu-chuang/">
         </link>
         <updated>2019-12-19T14:50:51.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="http://mr-jinan.cn//post-images/1576767619091.jpg" alt="">
-👇轮播图
-<img src="http://mr-jinan.cn//post-images/1576768609909.jpg" alt=""></p>
-<p>👇商品图
-<img src="http://mr-jinan.cn//post-images/1578572249988.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572249991.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572249992.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572249993.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572459091.jpg" alt="">
-<img src="http://mr-jinan.cn//post-images/1578572459092.jpg" alt="">
-<img src="http://mr-jinan.cn//post-images/1578572249995.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572249996.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572280097.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572280099.jpg" alt=""><br>
-<img src="http://mr-jinan.cn//post-images/1578572280100.jpg" alt=""></p>
+        <content type="html"><![CDATA[<p><img src="https://luojinan.github.io/post-images/1576767619091.jpg" alt="" loading="lazy"><br>
+👇轮播图<br>
+<img src="https://luojinan.github.io/post-images/1576768609909.jpg" alt="" loading="lazy"></p>
+<p>👇商品图<br>
+<img src="https://luojinan.github.io/post-images/1578572249988.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572249991.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572249992.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572249993.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572459091.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572459092.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572249995.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572249996.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572280097.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572280099.jpg" alt="" loading="lazy"><br>
+<img src="https://luojinan.github.io/post-images/1578572280100.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[小程序支付步骤]]></title>
-        <id>http://mr-jinan.cn//post/xiao-cheng-xu-zhi-fu-bu-zou</id>
-        <link href="http://mr-jinan.cn//post/xiao-cheng-xu-zhi-fu-bu-zou">
+        <id>https://luojinan.github.io/post/xiao-cheng-xu-zhi-fu-bu-zou/</id>
+        <link href="https://luojinan.github.io/post/xiao-cheng-xu-zhi-fu-bu-zou/">
         </link>
         <updated>2019-11-21T01:09:24.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_4&amp;index=3">小程序支付文档</a></p>
 <p><a href="https://open.swiftpass.cn/openapi/doc?index_1=3&amp;index_2=1&amp;chapter_1=190&amp;chapter_2=953">威富通文档</a></p>
 <p><a href="https://github.com/luojinan/utils/blob/master/patSteps/index.vue">github--支付组件逻辑部分</a></p>
-<p><img src="http://mr-jinan.cn//post-images/1574298585705.png" alt=""></p>
-<p><img src="http://mr-jinan.cn//post-images/1574298592249.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1574298585705.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://luojinan.github.io/post-images/1574298592249.png" alt="" loading="lazy"></figure>
 <hr>
 <p>由图可知，支付流程主要分为，<code>创建订单</code>，<code>支付步骤</code>，<code>支付完成对账</code></p>
 <ul>
@@ -51,7 +51,7 @@
 <li><strong>支付步骤</strong>。由<code>前端小程序api</code>做好不同情况处理，点击取消点击<code>确定，异常</code>等</li>
 <li><strong>支付完成对账</strong>，由订单号、商品名、支付信息<code>得已购信息</code></li>
 </ul>
-<p><img src="http://mr-jinan.cn//post-images/1574298597465.png" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="https://luojinan.github.io/post-images/1574298597465.png" alt="" loading="lazy"></figure>
 <hr>
 <h3 id="1-创建订单接口createpayorder">1、创建订单接口<code>createPayOrder</code></h3>
 <ul>
@@ -78,8 +78,8 @@
 </li>
 <li>出参：
 <ul>
-<li>状态
-👆注意，promisify之后，取消支付也是走的catch路线
+<li>状态<br>
+👆注意，promisify之后，取消支付也是走的catch路线<br>
 支付成功，不像接口有个statusCode，而是<code>res.errMsg == 'requestPayment:ok'</code></li>
 </ul>
 </li>
@@ -91,8 +91,8 @@
 <li>支付成功</li>
 </ul>
 <blockquote>
-<p>取消支付：调用取消订单接口。因为订单已经创建，所以要做释放内存清除无效订单的操作，这个接口实际上相当于删除订单接口
-支付失败：弹窗提示
+<p>取消支付：调用取消订单接口。因为订单已经创建，所以要做释放内存清除无效订单的操作，这个接口实际上相当于删除订单接口<br>
+支付失败：弹窗提示<br>
 支付成功：调用对账接口。获取到已购代金券id，用于跳转到该已购代金券详情页面等后续操作。</p>
 </blockquote>
 <hr>
@@ -132,28 +132,28 @@
 <hr>
 <h3 id="注意点">注意点</h3>
 <h4 id="1-decodeuricomponent">1、decodeURIComponent()</h4>
-<p><img src="http://mr-jinan.cn//post-images/1574298604909.png" alt="">
-从上一个页面传递过来的对象值，经过json转为对象之前要
-<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">MDN--decodeURIComponent()</a>
-示例
-<img src="http://mr-jinan.cn//post-images/1574298611697.png" alt="">
+<p><img src="https://luojinan.github.io/post-images/1574298604909.png" alt="" loading="lazy"><br>
+从上一个页面传递过来的对象值，经过json转为对象之前要<br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">MDN--decodeURIComponent()</a><br>
+示例<br>
+<img src="https://luojinan.github.io/post-images/1574298611697.png" alt="" loading="lazy"><br>
 👆可知是用来解码中文.......</p>
 <p>不要用这种方法做页面传值，应该存本地缓存传对象，获取到对象之后清除本地缓存</p>
 <hr>
 <h4 id="2-catch里的return">2、catch里的return👇</h4>
-<p><img src="http://mr-jinan.cn//post-images/1574298617306.png" alt=""></p>
+<figure data-type="image" tabindex="4"><img src="https://luojinan.github.io/post-images/1574298617306.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[2019.11 | 本地缓存方法封装]]></title>
-        <id>http://mr-jinan.cn//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang</id>
-        <link href="http://mr-jinan.cn//post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang">
+        <id>https://luojinan.github.io/post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang/</id>
+        <link href="https://luojinan.github.io/post/201911-or-ben-di-huan-cun-fang-fa-feng-zhuang/">
         </link>
         <updated>2019-11-04T02:00:52.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>原生的本地缓存方法api调用，有一定限制和麻烦的地方</p>
 </blockquote>
-<p>为了达到效果
+<p>为了达到效果<br>
 参考：<a href="https://github.com/wuchangming/web-storage-cache">web-storage-cache的github库</a></p>
 <hr>
 <p>[toc]</p>
@@ -165,7 +165,7 @@ myStorage.set('key','value',{exp:100})  // key value(字符串/对象) 超�
 myStorage.get('key')  // 自动把字符串转为对象
 myStorage.delete('key')
 </code></pre>
-<p><img src="http://mr-jinan.cn//post-images/1572832904458.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1572832904458.png" alt="" loading="lazy"></figure>
 <hr>
 <h3 id="set方法">set()方法</h3>
 <h4 id="实现步骤">实现步骤：</h4>
@@ -222,8 +222,8 @@ function _getEndDateByOption(timer, now) {
   return timer
 }
 </code></pre>
-<p>最终存入的<strong>数据格式</strong>
-<img src="http://mr-jinan.cn//post-images/1572832923177.png" alt=""></p>
+<p>最终存入的<strong>数据格式</strong><br>
+<img src="https://luojinan.github.io/post-images/1572832923177.png" alt="" loading="lazy"></p>
 <hr>
 <h3 id="get方法">get()方法</h3>
 <h4 id="实现步骤-2">实现步骤：</h4>
@@ -280,17 +280,17 @@ function _checkObj(item) {
 <hr>
 <h3 id="其他">其他</h3>
 <p><strong>封装成构造函数</strong>只是为了能用<code>this.storage</code>这个值（<code>localStorage对象</code>）</p>
-<p>实际上<strong>不需要</strong>封装成构造函数，<code>this.storage</code>这个值没必要抽出来...
+<p>实际上<strong>不需要</strong>封装成构造函数，<code>this.storage</code>这个值没必要抽出来...<br>
 最终<strong>暴露</strong>出 <code>{ get(), set() }</code>这种形式用好像更方便</p>
 <hr>
-<p><strong>最终代码：</strong>
+<p><strong>最终代码：</strong><br>
 <a href="https://github.com/luojinan/utils/blob/master/myStorage/myStorage.js">github</a></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[防抖工具函数封装]]></title>
-        <id>http://mr-jinan.cn//post/fang-dou-gong-ju-han-shu-feng-zhuang</id>
-        <link href="http://mr-jinan.cn//post/fang-dou-gong-ju-han-shu-feng-zhuang">
+        <id>https://luojinan.github.io/post/fang-dou-gong-ju-han-shu-feng-zhuang/</id>
+        <link href="https://luojinan.github.io/post/fang-dou-gong-ju-han-shu-feng-zhuang/">
         </link>
         <updated>2019-08-15T02:03:59.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -298,10 +298,10 @@ function _checkObj(item) {
 </blockquote>
 <h3 id="效果图">效果图</h3>
 <ul>
-<li><strong>没有防抖的输入框</strong>
-<img src="http://mr-jinan.cn//post-images/1565834657948.gif" alt=""></li>
-<li><strong>加了防抖的输入框</strong>
-<img src="http://mr-jinan.cn//post-images/1565834660305.gif" alt=""></li>
+<li><strong>没有防抖的输入框</strong><br>
+<img src="https://luojinan.github.io/post-images/1565834657948.gif" alt="" loading="lazy"></li>
+<li><strong>加了防抖的输入框</strong><br>
+<img src="https://luojinan.github.io/post-images/1565834660305.gif" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h3 id="使用方法">使用方法</h3>
@@ -321,15 +321,15 @@ function _checkObj(item) {
     </entry>
     <entry>
         <title type="html"><![CDATA[短信倒计时]]></title>
-        <id>http://mr-jinan.cn//post/duan-xin-dao-ji-shi</id>
-        <link href="http://mr-jinan.cn//post/duan-xin-dao-ji-shi">
+        <id>https://luojinan.github.io/post/duan-xin-dao-ji-shi/</id>
+        <link href="https://luojinan.github.io/post/duan-xin-dao-ji-shi/">
         </link>
         <updated>2019-08-14T12:27:06.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>调用发送短信接口后，<strong>开启倒计时</strong>、并<strong>使按钮不可点击</strong></p>
 </blockquote>
 <h3 id="效果图">效果图</h3>
-<p><img src="http://mr-jinan.cn//post-images/1565785631215.gif" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1565785631215.gif" alt="" loading="lazy"></figure>
 <hr>
 <h3 id="实现步骤">实现步骤</h3>
 <ul>
@@ -367,8 +367,8 @@ function _checkObj(item) {
     </entry>
     <entry>
         <title type="html"><![CDATA[节流工具函数封装]]></title>
-        <id>http://mr-jinan.cn//post/jie-liu-gong-ju-han-shu-feng-zhuang</id>
-        <link href="http://mr-jinan.cn//post/jie-liu-gong-ju-han-shu-feng-zhuang">
+        <id>https://luojinan.github.io/post/jie-liu-gong-ju-han-shu-feng-zhuang/</id>
+        <link href="https://luojinan.github.io/post/jie-liu-gong-ju-han-shu-feng-zhuang/">
         </link>
         <updated>2019-08-14T11:40:11.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -404,7 +404,7 @@ function throttle (fn, delay) {
 <li><strong>缺点</strong></li>
 </ul>
 <blockquote>
-<p>在不可操作时间段中，点击无效，<strong>时间段结束不自动执行</strong>，要再点击一次
+<p>在不可操作时间段中，点击无效，<strong>时间段结束不自动执行</strong>，要再点击一次<br>
 有时需求，频繁操作后，<strong>要记住最后一次点击，并定时结束自动执行</strong></p>
 </blockquote>
 <pre><code class="language-js">//  比较两次时间戳的间隔 是否大于等于 指定的时间 来决定是否执行事件回调
@@ -424,8 +424,8 @@ function throttle (fn, delay) {
 <li><strong>结合使用</strong></li>
 </ul>
 <blockquote>
-<p>首次执行使用<strong>时间戳方法</strong>（非频繁操作）
-1、后续继续使用<strong>时间戳方法</strong>(频繁操作且不需要自动执行最后一次)
+<p>首次执行使用<strong>时间戳方法</strong>（非频繁操作）<br>
+1、后续继续使用<strong>时间戳方法</strong>(频繁操作且不需要自动执行最后一次)<br>
 2、后续执行包括记住最后一次点击都使用<strong>定时器方法</strong>（频繁操作且自动执行最后一次）</p>
 </blockquote>
 <hr>
@@ -435,8 +435,8 @@ function throttle (fn, delay) {
 </blockquote>
 <h4 id="1-utils文件夹封装">1、utils文件夹封装</h4>
 <blockquote>
-<p>注意：这里利用了<code>闭包的方式（且不自执行）</code>
-<code>function return function</code>来设置<code>局部变量</code>
+<p>注意：这里利用了<code>闭包的方式（且不自执行）</code><br>
+<code>function return function</code>来设置<code>局部变量</code><br>
 关于<code>局部变量</code>看<strong>第四点</strong></p>
 </blockquote>
 <pre><code class="language-js">function Throttle (func, wait, trailing) {
@@ -471,7 +471,7 @@ function throttle (fn, delay) {
 </code></pre>
 <h4 id="2-页面内调用">2、页面内调用</h4>
 <blockquote>
-<p>1、引入工具函数<code>utils文件夹</code>
+<p>1、引入工具函数<code>utils文件夹</code><br>
 2、并执行<code>节流闭包函数</code>，外部（即：初始化局部变量），不会执行内部<code>return</code>的<code>function</code></p>
 </blockquote>
 <pre><code class="language-js">import {Throttle} from '@/common/libs/throttle'
@@ -494,7 +494,7 @@ let throttle = Throttle()
 <hr>
 <h3 id="四-局部变量问题">四、局部变量问题</h3>
 <blockquote>
-<p>以此<strong>抽离封装函数</strong>，做到不需要在<code>vue</code>的<code>data</code>里设置<code>变量</code>
+<p>以此<strong>抽离封装函数</strong>，做到不需要在<code>vue</code>的<code>data</code>里设置<code>变量</code><br>
 否则要在<code>data</code>里存入<code>点击时间戳</code>来做<strong>点击间隔判断</strong></p>
 </blockquote>
 <blockquote>
@@ -503,26 +503,26 @@ let throttle = Throttle()
 <p><code>function return function</code> 方式，要分开执行<code>外部</code>和<code>内部方法</code></p>
 <ul>
 <li>一次用于<strong>初始化局部变量</strong></li>
-<li>一次用于<strong>执行内部操作</strong>
-<img src="http://mr-jinan.cn//post-images/1565782932409.png" alt=""></li>
+<li>一次用于<strong>执行内部操作</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782932409.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h3 id="五-回调函数无法传参问题">五、回调函数无法传参问题</h3>
 <blockquote>
-<p>到这一步，在项目页面已经可以实现节流（既能第一次生效又能自动执行最后一次）
+<p>到这一步，在项目页面已经可以实现节流（既能第一次生效又能自动执行最后一次）<br>
 但是，发现传入回调函数是整个函数，不带<code>( )</code>，即：<strong>无法带参数</strong></p>
 </blockquote>
 <h4 id="1-尝试不传入整个函数而是传入func">1、尝试不传入整个函数,而是传入<code>func()</code></h4>
 <ul>
 <li><strong>当前情况</strong></li>
-<li><strong>传入的只能是整个函数，而不发传入参数</strong>
-<img src="http://mr-jinan.cn//post-images/1565782935988.png" alt=""></li>
+<li><strong>传入的只能是整个函数，而不发传入参数</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782935988.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <ul>
 <li><strong>修改为可以传入<code>function()</code></strong></li>
-<li><strong>导致传入的不再是函数，而是一个值</strong>
-<img src="http://mr-jinan.cn//post-images/1565782951392.png" alt=""></li>
+<li><strong>导致传入的不再是函数，而是一个值</strong><br>
+<img src="https://luojinan.github.io/post-images/1565782951392.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h4 id="2-曲线救国给工具函数传参数而不是给回调函数传参数">2、曲线救国,给工具函数传参数,而不是给回调函数传参数</h4>
@@ -550,16 +550,16 @@ let throttle = Throttle()
     </entry>
     <entry>
         <title type="html"><![CDATA[emoji转码]]></title>
-        <id>http://mr-jinan.cn//post/emoji-zhuan-ma</id>
-        <link href="http://mr-jinan.cn//post/emoji-zhuan-ma">
+        <id>https://luojinan.github.io/post/emoji-zhuan-ma/</id>
+        <link href="https://luojinan.github.io/post/emoji-zhuan-ma/">
         </link>
         <updated>2019-08-11T12:52:06.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>对于移动端，用户有可能输入<code>emoji</code>，并传入数据库，会导致<strong>无法识别而报错</strong></p>
 </blockquote>
 <blockquote>
-<p>这里涉及2个工具方法：
-1、<code>utf16的emoji表情字符</code> 转码 成<code>utf8的字符</code>
+<p>这里涉及2个工具方法：<br>
+1、<code>utf16的emoji表情字符</code> 转码 成<code>utf8的字符</code><br>
 2、<code>八进制的字符</code> 转码 成<code>十六进制的emoji表情字符</code></p>
 </blockquote>
 <hr>
@@ -640,16 +640,16 @@ var decode = entitiesToUtf16(res)
 console.log('decode', decode)
 </code></pre>
 <hr>
-<p><a href="https://juejin.im/post/5bad9140e51d450e935c6d64">关于转义涉及XSS攻击</a>
-如有建议和疑问可联系
-QQ：1017386624
+<p><a href="https://juejin.im/post/5bad9140e51d450e935c6d64">关于转义涉及XSS攻击</a><br>
+如有建议和疑问可联系<br>
+QQ：1017386624<br>
 邮箱：1017386624@qq.com</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[移动端grid网格布局]]></title>
-        <id>http://mr-jinan.cn//post/yi-dong-duan-grid-wang-ge-bu-ju</id>
-        <link href="http://mr-jinan.cn//post/yi-dong-duan-grid-wang-ge-bu-ju">
+        <id>https://luojinan.github.io/post/yi-dong-duan-grid-wang-ge-bu-ju/</id>
+        <link href="https://luojinan.github.io/post/yi-dong-duan-grid-wang-ge-bu-ju/">
         </link>
         <updated>2019-08-11T12:09:17.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -680,19 +680,19 @@ QQ：1017386624
 </p>
 <hr>
 <h3 id="一-效果">一、效果</h3>
-<p><img src="http://mr-jinan.cn//post-images/1565525457735.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1565525457735.png" alt="" loading="lazy"></figure>
 <h3 id="二-示例">二、示例</h3>
 <h4 id="1-示例1">1、示例1</h4>
 <blockquote>
-<p>第一种示例只需要在<strong>父级</strong>写<code>grid</code>布局即可
-<code>列2端对齐、中间列居中</code>
+<p>第一种示例只需要在<strong>父级</strong>写<code>grid</code>布局即可<br>
+<code>列2端对齐、中间列居中</code><br>
 <code>中间行边距设值</code></p>
 </blockquote>
 <ul>
-<li><strong>html</strong>
-<img src="http://mr-jinan.cn//post-images/1565525471452.png" alt=""></li>
-<li><strong>外层css</strong>
-<img src="http://mr-jinan.cn//post-images/1565525484221.png" alt=""></li>
+<li><strong>html</strong><br>
+<img src="https://luojinan.github.io/post-images/1565525471452.png" alt="" loading="lazy"></li>
+<li><strong>外层css</strong><br>
+<img src="https://luojinan.github.io/post-images/1565525484221.png" alt="" loading="lazy"></li>
 </ul>
 <pre><code class="language-css">.parent{
     display: grid;
@@ -706,21 +706,21 @@ QQ：1017386624
 }
 </code></pre>
 <ul>
-<li><strong>内层css</strong>
-<img src="http://mr-jinan.cn//post-images/1565525493678.png" alt=""></li>
+<li><strong>内层css</strong><br>
+<img src="https://luojinan.github.io/post-images/1565525493678.png" alt="" loading="lazy"></li>
 </ul>
 <hr>
 <h4 id="2-示例2">2、示例2</h4>
-<p><img src="http://mr-jinan.cn//post-images/1565525498059.png" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://luojinan.github.io/post-images/1565525498059.png" alt="" loading="lazy"></figure>
 <blockquote>
-<p>第二种示例<strong>父级、子级</strong>都要写<code>grid</code>布局
-<code>列间距设值</code>
-<code>行间距设值</code>
+<p>第二种示例<strong>父级、子级</strong>都要写<code>grid</code>布局<br>
+<code>列间距设值</code><br>
+<code>行间距设值</code><br>
 <code>第一个子项占2列</code></p>
 </blockquote>
 <ul>
-<li><strong>外层css</strong>
-<img src="http://mr-jinan.cn//post-images/1565525503568.png" alt=""></li>
+<li><strong>外层css</strong><br>
+<img src="https://luojinan.github.io/post-images/1565525503568.png" alt="" loading="lazy"></li>
 </ul>
 <pre><code class="language-css">parent{
     display: grid;
@@ -730,8 +730,8 @@ QQ：1017386624
 }
 </code></pre>
 <ul>
-<li><strong>内层css</strong>
-<img src="http://mr-jinan.cn//post-images/1565525513532.png" alt=""></li>
+<li><strong>内层css</strong><br>
+<img src="https://luojinan.github.io/post-images/1565525513532.png" alt="" loading="lazy"></li>
 </ul>
 <pre><code class="language-scss">child-item {
     ...
@@ -746,28 +746,28 @@ QQ：1017386624
 <blockquote>
 <p>不止布局在自适应，单个<code>item</code>也在<strong>自适应</strong>(<code>flex</code>等自适应方案难做到)</p>
 </blockquote>
-<p><img src="http://mr-jinan.cn//post-images/1565525521555.gif" alt="">
-<a href="https://juejin.im/post/5d46c169e51d4562132030a0#heading-15">PC端掘金博客</a>
+<p><img src="https://luojinan.github.io/post-images/1565525521555.gif" alt="" loading="lazy"><br>
+<a href="https://juejin.im/post/5d46c169e51d4562132030a0#heading-15">PC端掘金博客</a><br>
 <a href="https://www.w3cplus.com/css3/how-the-minmax-function-works.html">minmax属性</a></p>
 <hr>
-<p>另外单位：<code>1fr</code>
+<p>另外单位：<code>1fr</code><br>
 等同于<code>flex布局</code>的<code>flex: 1;</code></p>
 <hr>
-<p>如有建议和疑问可联系
-QQ：1017386624
+<p>如有建议和疑问可联系<br>
+QQ：1017386624<br>
 邮箱：1017386624@qq.com</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[一行代码去重数组]]></title>
-        <id>http://mr-jinan.cn//post/yi-xing-dai-ma-qu-chong-shu-zu</id>
-        <link href="http://mr-jinan.cn//post/yi-xing-dai-ma-qu-chong-shu-zu">
+        <id>https://luojinan.github.io/post/yi-xing-dai-ma-qu-chong-shu-zu/</id>
+        <link href="https://luojinan.github.io/post/yi-xing-dai-ma-qu-chong-shu-zu/">
         </link>
         <updated>2019-08-10T01:54:18.000Z</updated>
         <content type="html"><![CDATA[<h3 id="一行代码去重数组">一行代码去重数组</h3>
-<p><img src="http://mr-jinan.cn//post-images/1565402943271.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1565402943271.png" alt="" loading="lazy"></figure>
 <blockquote>
-<p>注意<code>new Set()</code>返回的是一个set对象，而不是直接返回去重后的数组
+<p>注意<code>new Set()</code>返回的是一个set对象，而不是直接返回去重后的数组<br>
 因此，把该对象展开并放入空数组中，才能形成一个数组</p>
 </blockquote>
 <pre><code class="language-js">const list = [1, 1, 2, 3, 6, 45, 8, 5, 4, 6, 5]
@@ -777,8 +777,8 @@ const uniqueList = [...new Set(list)] // [1, 2, 3, 6, 45, 8, 5, 4]
     </entry>
     <entry>
         <title type="html"><![CDATA[测试文章]]></title>
-        <id>http://mr-jinan.cn//post/测试文章</id>
-        <link href="http://mr-jinan.cn//post/测试文章">
+        <id>https://luojinan.github.io/post/测试文章/</id>
+        <link href="https://luojinan.github.io/post/测试文章/">
         </link>
         <updated>2019-07-10T16:20:30.000Z</updated>
         <summary type="html"><![CDATA[<p>？？？</p>
@@ -786,15 +786,15 @@ const uniqueList = [...new Set(list)] // [1, 2, 3, 6, 45, 8, 5, 4]
         <content type="html"><![CDATA[<p>？？？</p>
 <!-- more -->
 <p>现在写博客的地方有：CSDN、印象笔记、Gridea。</p>
-<p>1、CSDN和印象笔记的图片不互通
+<p>1、CSDN和印象笔记的图片不互通<br>
 2、印象笔记无法自定义封面和摘要</p>
 <hr>
-<p>Gridea：	
-1、图片上传到github有时候加载不出来...本地预览可以，线上版本不行
-2、测试图片有没有可能会挂掉，永久有效就用来做印象笔记和CSDN的图床
-3、除了文章的代码块，Gridea能不能上传代码文件，还是要同样要链接到github代码库
+<p>Gridea：	<br>
+1、图片上传到github有时候加载不出来...本地预览可以，线上版本不行<br>
+2、测试图片有没有可能会挂掉，永久有效就用来做印象笔记和CSDN的图床<br>
+3、除了文章的代码块，Gridea能不能上传代码文件，还是要同样要链接到github代码库<br>
 4、以后的写笔记顺序： 印象笔记--&gt;Gridea--&gt;修改--&gt;Gridea发布--&gt;CSDN发布</p>
-<p><img src="http://mr-jinan.cn//post-images/1562895205737.jpg" alt="测试图片"></p>
+<figure data-type="image" tabindex="1"><img src="https://luojinan.github.io/post-images/1562895205737.jpg" alt="测试图片" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
